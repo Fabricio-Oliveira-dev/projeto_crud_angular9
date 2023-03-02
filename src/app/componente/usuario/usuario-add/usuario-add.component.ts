@@ -94,7 +94,6 @@ export class UsuarioAddComponent implements OnInit {
 
 
   ngOnInit() {
-
      this.userService.getProfissaoList().subscribe(data => {
        this.profissoes = data;
      });
