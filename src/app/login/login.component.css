@@ -1,5 +1,5 @@
 form {
-      padding: 100px 500px 50px 500px;
+  padding: 100px 500px 50px 500px;
 }
 
 #login {
@@ -42,7 +42,7 @@ form {
     text-align: center;
     width: 100%;
     margin: 1px 10px;
-  }
+}
 }
 
 @media all and (min-width: 280px) and (max-width: 1368px) {

@@ -1,29 +1,32 @@
-
 <form >
 
-  <div class="form-group">
-
-     <h3>Login do sistema</h3>
+  <div id="login" class="form-group" href="login.component.css">
+     <h3>Faça o login ou recupere suas credenciais</h3>
   </div>
 
   <div class="form-group">
-    <label for="login">E-mail:</label>
-    <input type="email" class="form-control" #email="ngModel"  [(ngModel)] = "usuario.login"  id="login" name="login"   required>
-    <div *ngIf="email.invalid" class="alert alert-danger">
-       Login deve ser informado
-    </div>
-
+    <label for="login" id="text-email">E-mail:</label>
+      <input type="email" class="form-control" #email="ngModel" [(ngModel)] = "usuario.login" id="login" name="login" required>
+        <ng-container *ngIf="email?.invalid.touched">
+          <div *ngIf="email.invalid" class="alert alert-danger">
+            Login deve ser informado
+          </div>
+        </ng-container>
   </div>
 
   <div class="form-group">
-    <label for="senha">Senha:</label>
-    <input type="password" class="form-control" #senha="ngModel"  [(ngModel)]="usuario.senha" id="senha" name="senha"  required>
-     <div *ngIf="senha.invalid" class="alert alert-danger">
-       Senha deve ser informada
-    </div>
+    <label for="senha" id="text-senha">Senha:</label>
+      <input type="password" class="form-control" #senha="ngModel" [(ngModel)]="usuario.senha" id="senha" name="senha" required>
+        <ng-container *ngIf="senha?.invalid.touched">
+          <div *ngIf="senha.invalid" class="alert alert-danger">
+            Senha deve ser informada
+          </div>
+        </ng-container>
   </div>
 
-  <button type="button" [disabled]="email.invalid || senha.invalid" class="btn btn-primary" (click)="login()"  >Acessar</button>
+  <div id="botoes">
+    <button id="acessar" (click)="login()" type="button" [disabled]="email.invalid || senha.invalid" class="btn btn-primary">Acessar</button>
+    <button id="recuperar" (click)="recuperar();"  type="button" [disabled]="email.invalid" class="btn btn-primary">Recuperar Acesso</button>
+  </div>
 
-  <button style="margin-left: 10px;" (click)="recuperar();"  type="button" [disabled]="email.invalid" class="btn btn-primary">Recuperar Acesso</button>
 </form>
