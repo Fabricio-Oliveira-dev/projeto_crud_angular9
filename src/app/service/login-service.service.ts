@@ -9,52 +9,39 @@ import { User } from '../model/User';
 })
 export class LoginServiceService {
 
-
   constructor(private http: HttpClient, private router: Router) { }
-
-
-
+    /*retorna a tentativa de acessar o sistema*/
     recuperar(login) {
 
       let user = new User();
       user.login = login;
 
     return this.http.post(AppConstants.getBaseUrlPath + 'recuperar/', user).subscribe(data => {
-
       alert( JSON.parse(JSON.stringify(data)).error);
-
     },
       error => {
-
         console.error("Erro ao recuperar login");
         alert('Erro ao recuperar login!')
       }
     );
   }
 
-
+  /*loga no sistema*/
   login(usuario) {
 
     return this.http.post(AppConstants.baseLogin, JSON.stringify(usuario)).subscribe(data => {
 
       /*Retorno Http*/
-
       var token = JSON.parse(JSON.stringify(data)).Authorization.split(' ')[1];
-
       localStorage.setItem("token", token);
-
-     console.info("Tohken: " + localStorage.getItem("token"));
+      console.info("Tohken: " + localStorage.getItem("token"));
 
       this.router.navigate(['home']);
-
-
     },
       error => {
-
         console.error("Erro ao fazer login ");
         alert('Acesso Negado!')
       }
     );
   }
-
 }

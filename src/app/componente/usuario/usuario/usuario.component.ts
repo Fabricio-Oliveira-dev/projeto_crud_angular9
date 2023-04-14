@@ -16,33 +16,25 @@ export class UsuarioComponent implements OnInit {
 
   constructor(private usuarioService: UsuarioService) { }
 
+  /*carrega a lista de usuários*/
   ngOnInit() {
-
     this.usuarioService.getStudentList().subscribe(data => {
       this.students = data.content;
       this.total = data.totalElements;
     });
-
   }
 
-
+  /*deleta o usuário*/
   deleteUsuario(id: Number, index) {
 
     if (confirm('Deseja mesmo remover?')) {
-
       this.usuarioService.deletarUsuario(id).subscribe(data => {
-        //console.log("Retorno do método delete : " + data);
-
-        this.students.splice(index, 1); /*Remover da tela*/
-
-        // this.usuarioService.getStudentList().subscribe(data => {
-        //  this.students = data;
-        // });
-
+      this.students.splice(index, 1); /*remove da tela*/
       });
     }
   }
 
+  /*consulta o usuário*/
   consultarUser() {
 
     if (this.nome === '') {
@@ -50,8 +42,8 @@ export class UsuarioComponent implements OnInit {
         this.students = data.content;
         this.total = data.totalElements;
       });
-    } else {
-
+    }
+    else {
       this.usuarioService.consultarUser(this.nome).subscribe(data => {
         this.students = data.content;
         this.total = data.totalElements;
@@ -59,11 +51,8 @@ export class UsuarioComponent implements OnInit {
     }
   }
 
-
-
-
+  /*carrega a lista de usuários por página*/
   carregarPagina(pagina) {
-
 
     if (this.nome !== '') {
       this.usuarioService.consultarUserPoPage(this.nome, (pagina - 1)).subscribe(data => {
@@ -77,12 +66,10 @@ export class UsuarioComponent implements OnInit {
         this.total = data.totalElements;
       });
     }
-
   }
 
-
+  /*faz o download do relatório de usuários*/
   imprimeRelatorio() {
     return this.usuarioService.downloadPdfRelatorio();
   }
-
 }

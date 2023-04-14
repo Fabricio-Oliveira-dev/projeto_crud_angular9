@@ -1,3 +1,54 @@
 form {
-	    padding: 15% 30% 10% 30%;
+      padding: 100px 500px 50px 500px;
+}
+
+#login {
+  display: flex;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  color: black;
+}
+
+#text-email, #text-senha, #botoes {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#recuperar {
+  margin-left: 10px;
+}
+
+@media all and (min-width: 280px) and (max-width: 1368px) {
+  form {
+    padding: 10px 0px 10px 0px;
+  }
+}
+
+@media all and (min-width: 280px) and (max-width: 1368px) {
+  #login {
+    display: grid;
+    text-align: center;
+    width: 100%;
+    margin-left: 2px;
+  }
+}
+
+@media all and (min-width: 280px) and (max-width: 1368px) {
+  #text-email, #text-senha {
+    display: grid;
+    text-align: center;
+    width: 100%;
+    margin: 1px 10px;
+  }
+}
+
+@media all and (min-width: 280px) and (max-width: 1368px) {
+  #acessar, #recuperar {
+    display: grid;
+    text-align: center;
+    width: 100%;
+  }
 }

@@ -15,14 +15,15 @@ export class BarChartComponent implements OnInit {
 
   userChart = new UserChart();
 
+  /*carrega os dados do gráfico*/
   ngOnInit(): void {
     this.usuaruoService.carregarGrafico().subscribe (data => {
       this.userChart = data;
 
-      /*Nomes */
+      /*nomes*/
       this.barChartLabels = this.userChart.nome.split(',');
 
-      /*Salario */
+      /*salario*/
       var arraySalario = JSON.parse('[' + this.userChart.salario + ']');
 
       this.barChartData = [
@@ -31,7 +32,6 @@ export class BarChartComponent implements OnInit {
 
     });
   }
-
 
   barChartOptions: ChartOptions = {
     responsive: true,
@@ -44,5 +44,4 @@ export class BarChartComponent implements OnInit {
   barChartData: ChartDataSets[] = [
     { data: [], label: 'Salário Usuário' }
   ];
-
 }

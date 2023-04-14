@@ -13,16 +13,13 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService: LoginServiceService, private router: Router) { }
 
-
   public login() {
     this.loginService.login(this.usuario);
   }
 
-
   public recuperar(){
     this.loginService.recuperar(this.usuario.login);
   }
-
 
   ngOnInit() {
     if (localStorage.getItem('token') !== null &&
@@ -30,5 +27,4 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['home']);
     }
   }
-
 }

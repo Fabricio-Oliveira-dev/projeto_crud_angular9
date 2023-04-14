@@ -19,7 +19,6 @@ import { UsuarioReportComponent } from './componente/usuario/usuario-report/usua
 import {ChartsModule} from 'ng2-charts';
 import { BarChartComponent } from './componente/bar-chart/bar-chart.component';
 
-
 export const appRouters: Routes = [
 
   { path: 'home', component: HomeComponent, canActivate: [GuardiaoGuard] },
@@ -31,7 +30,6 @@ export const appRouters: Routes = [
   { path: 'userReport', component: UsuarioReportComponent, canActivate: [GuardiaoGuard] },
   { path: 'chart', component: BarChartComponent, canActivate: [GuardiaoGuard] },
 ];
-
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
 

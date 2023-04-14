@@ -1,35 +1,36 @@
-
 <div id="page-content-wrapper" >
-<nav class="navbar navbar-expand-lg navbar-light bg-light" [hidden]="esconderBarrar()">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" [hidden]="esconderBarrar()">
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse"
-     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-     aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-     
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>
-      </li>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Menu
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-           <a class="dropdown-item" [routerLink]="['/userList']" routerLinkActive="router-link-active" >Usuário</a>
-           <a class="dropdown-item" [routerLink]="['/userReport']" routerLinkActive="router-link-active" >Relatório</a>
-           <a class="dropdown-item" [routerLink]="['/chart']" routerLinkActive="router-link-active" >Gráfico Salário</a>
-        </div>
-      </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>
+        </li>
 
-      <li class="nav-item">
-        <a class="nav-link" (click)="sair()">Sair</a> 
-      </li>
-    </ul>
-  </div>
-</nav>
-<router-outlet></router-outlet>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Menu
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['/userList']" routerLinkActive="router-link-active" >Usuário</a>
+            <a class="dropdown-item" [routerLink]="['/userReport']" routerLinkActive="router-link-active" >Relatório</a>
+            <a class="dropdown-item" [routerLink]="['/chart']" routerLinkActive="router-link-active" >Gráfico Salário</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" (click)="sair()" style="cursor: pointer;">Sair</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
 </div>
